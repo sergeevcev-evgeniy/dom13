@@ -1,0 +1,99 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Дом, который светится</title><style>
+:root{--bg:#11110f;--paper:#f4f1e9;--text:#f8f5ed;--muted:#b8b4aa;--accent:#d7b15e;--max:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}img,video{display:block;width:100%}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.section{padding:100px 0}.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(44px,7vw,92px);line-height:.98;max-width:780px;margin:0 0 24px}h2{font-size:clamp(34px,5vw,64px);line-height:1.05;margin:0 0 24px}.lead{font-size:clamp(18px,2vw,24px);color:var(--muted);max-width:700px}.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}.hero img{position:absolute;inset:0;height:100%;object-fit:cover;opacity:.72}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85))}.hero-content{position:relative;z-index:2;padding:80px 0}.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}.cardimg{border-radius:22px;overflow:hidden}.cardimg img,.cardimg video{height:100%;object-fit:cover}.compare{background:var(--paper);color:#171713}.compare-grid,.process-grid,.gallery,.spec-grid{display:grid;gap:18px}.compare-grid{grid-template-columns:1fr 1fr}.compare img{height:460px;object-fit:cover;border-radius:22px}.process-grid{grid-template-columns:repeat(3,1fr);margin-top:40px}.process{background:#191916;border-radius:20px;overflow:hidden}.process img{height:260px;object-fit:cover}.process div{padding:22px}.process p{color:var(--muted)}.video{border-radius:22px;overflow:hidden;background:#000}.video video{aspect-ratio:16/9;object-fit:cover}.construction-video{grid-template-columns:1.5fr .75fr}.construction-video .cardimg{min-height:560px}.construction-video video{height:100%;object-fit:cover}.gallery{grid-template-columns:1.35fr .65fr}.gallery img{border-radius:22px;object-fit:cover}.gallery>.main{height:700px}.side{display:grid;gap:18px}.side img{height:220px}.spec-grid{grid-template-columns:repeat(3,1fr)}.spec{padding:28px;border:1px solid #bbb;background:#fff;color:#111;min-height:150px}.final{min-height:70vh;position:relative;display:flex;align-items:flex-end}.final img{position:absolute;inset:0;height:100%;object-fit:cover;opacity:.55}.final:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.88))}.final .wrap{position:relative;z-index:2;padding:80px 0}.btn{display:inline-block;padding:14px 22px;border:1px solid #fff;border-radius:999px;color:#fff;text-decoration:none}.contact-list{display:flex;flex-wrap:wrap;gap:14px 18px;margin:30px 0 26px}.contact-link{display:inline-flex;align-items:center;padding:13px 19px;border:1px solid rgba(255,255,255,.7);border-radius:999px;color:#fff;text-decoration:none;font-size:17px;transition:background .25s ease,border-color .25s ease,transform .25s ease}.contact-link:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}.handmade-note{max-width:680px;margin:0;color:#ddd;font-size:16px}@media(max-width:850px){.grid2,.construction-video,.compare-grid,.gallery{grid-template-columns:1fr}.construction-video .cardimg{min-height:0}.process-grid{grid-template-columns:1fr 1fr}.gallery>.main,.side img{height:auto}.spec-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.wrap{width:calc(100% - 24px)}.section{padding:65px 0}.process-grid,.spec-grid{grid-template-columns:1fr}.hero{min-height:85vh}}
+
+
+/* Scroll animation layer */
+.hero{isolation:isolate}
+.hero:before{content:"";position:absolute;inset:10% 8% -8%;z-index:1;background:radial-gradient(circle at 52% 68%,rgba(215,177,94,.34),rgba(215,177,94,.12) 24%,transparent 60%);filter:blur(44px);opacity:.72;pointer-events:none;animation:heroGlow 5.5s ease-in-out infinite alternate}
+.hero img{transform:scale(1.035);animation:heroDrift 16s ease-in-out infinite alternate;will-change:transform,filter;filter:saturate(1.04) contrast(1.02)}
+.hero-content .eyebrow,.hero-content h1,.hero-content .lead{opacity:0;transform:translateY(28px);animation:heroTextIn .9s cubic-bezier(.22,1,.36,1) forwards}
+.hero-content h1{animation-delay:.12s}.hero-content .lead{animation-delay:.26s}
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal-text{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal-text.is-visible{opacity:1;transform:none}
+.process{opacity:0;transform:translateY(46px) scale(.97);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+.process.is-visible{opacity:1;transform:none}
+.process.is-visible:hover{transform:translateY(-7px);box-shadow:0 22px 55px rgba(0,0,0,.28)}
+.process:nth-child(2){transition-delay:.12s}.process:nth-child(3){transition-delay:.24s}
+.parallax-media{overflow:hidden;transform:translateZ(0)}
+.parallax-media img{transform:scale(1.035);transition:transform .18s linear;will-change:transform}
+.compare-grid img,.gallery img,.cardimg img{transition:transform .7s cubic-bezier(.22,1,.36,1),filter .7s ease}
+.compare-grid img:hover,.gallery img:hover,.cardimg img:hover{transform:scale(1.025);filter:brightness(1.04)}
+.section{transition:opacity .55s ease}
+@keyframes heroGlow{from{opacity:.48;transform:scale(.96)}to{opacity:.86;transform:scale(1.05)}}
+@keyframes heroDrift{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.085) translate3d(0,-1.2%,0)}}
+@keyframes heroTextIn{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero:before,.hero img,.hero-content .eyebrow,.hero-content h1,.hero-content .lead{animation:none}.hero-content .eyebrow,.hero-content h1,.hero-content .lead,.reveal,.reveal-text,.process{opacity:1;transform:none;transition:none}.parallax-media img{transform:none!important;transition:none}}
+
+</style></head><body>
+<header class="hero"><img src="assets/hero.jpg" alt="Светящаяся миниатюра дома"><div class="wrap hero-content"><p class="eyebrow">Дом №13 · первая модель</p><h1>Дом, который светится</h1><p class="lead">Архитектурная миниатюра с подсветкой, созданная по настоящему дому.</p></div></header>
+<section class="section"><div class="wrap grid2"><div class="cardimg"><img src="assets/house-2.jpg" alt="Оригинальный дом"></div><div><p class="eyebrow">С чего всё началось</p><h2>Дом №13</h2><p class="lead">Кирпичный пятиэтажный дом №13 построили в посёлке Акулово в 1964 году по индивидуальному проекту.<br><br>Он был одним из многих домов своего времени — простым, привычным и внешне почти незаметным. Но для живших в нём семей он стал очень важным местом. Подобные пятиэтажки в 1960-е были частью большого переселения: люди покидали бараки и коммунальные квартиры и впервые получали отдельное жильё.<br><br>Здесь прошло моё детство. В 2026 году дом снесли по программе реновации. Жильцы переезжали в новые квартиры, но вместе с радостью от нового жилья многие прощались с домом, двором и соседями, которые были частью их жизни много лет.<br><br>Мне захотелось сохранить память о нём — не только на фотографии, но и в предмете, который можно поставить рядом и снова увидеть свет в его окнах. Так появилась первая модель.</p></div></div></section>
+<section class="section compare"><div class="wrap"><p class="eyebrow">От здания к миниатюре</p><div class="compare-grid"><img src="assets/house-1.jpg" alt="Настоящий дом"><img src="assets/lamp-front-off.jpg" alt="Миниатюра без подсветки"></div><h2 style="margin-top:50px">Не просто копия.<br>Память в масштабе.</h2></div></section>
+<section class="section"><div class="wrap"><p class="eyebrow">Процесс</p><h2>Как появляется дом</h2><div class="process-grid"><article class="process"><img src="assets/cad-4.png" alt="3D-модель"><div><h3>Проектирование</h3><p>Фасад, окна, балконы и крыша заново собираются в цифровой модели.</p></div></article><article class="process"><img src="assets/cad-3.png" alt="Дом в программе-слайсере перед 3D-печатью"><div><h3>3D-печать</h3><p>Дом подготавливается в программе-слайсере: детали размещаются на столе так, чтобы сохранить форму и точность фасада.</p></div></article><article class="process"><img src="assets/process-solder-2.jpg" alt="Ручная сборка"><div><h3>Ручная сборка</h3><p>Свет, контакты и проводка устанавливаются и проверяются вручную.</p></div></article></div></div></section>
+<section class="section"><div class="wrap"><p class="eyebrow">Видео процесса</p><h2>Дом растёт слой за слоем</h2><div class="video"><video class="scroll-video" muted playsinline loop preload="metadata" data-autoplay src="assets/printing.mp4"></video></div></div></section>
+<section class="section"><div class="wrap grid2 construction-video"><div class="cardimg"><video class="scroll-video" muted playsinline loop preload="metadata" poster="assets/hero.jpg" data-autoplay src="assets/lamp-operation.mp4"></video></div><div><p class="eyebrow">Конструкция</p><h2>Просто поставьте дом на основание</h2><p class="lead">Съёмный корпус, тёплый свет 3000К, контактная группа и питание через USB Type-C.</p></div></div></section>
+<section class="section"><div class="wrap"><p class="eyebrow">Галерея</p><h2>Дом №13</h2><div class="gallery"><img class="main" src="assets/lamp-wide.jpg" alt="Светильник в интерьере"><div class="side"><img src="assets/lamp-front-lit.jpg" alt="Фронтальный вид"><img src="assets/lamp-parts.jpg" alt="Дом и основание отдельно"><img src="assets/process-inside.jpg" alt="Внутренняя конструкция"></div></div></div></section>
+<section class="section" style="background:var(--paper);color:#111"><div class="wrap"><p class="eyebrow">Характеристики</p><h2>Небольшой дом для большого чувства уюта</h2><div class="spec-grid"><div class="spec"><h3>20 × 5 × 6 см</h3><p>Размер модели</p></div><div class="spec"><h3>3000К</h3><p>Тёплый свет</p></div><div class="spec"><h3>USB-C</h3><p>Подойдёт обычная зарядка от телефона или повербанк, 5В</p></div><div class="spec"><h3>PLA</h3><p>Матовый биопластик на основе возобновляемого сырья, в том числе кукурузного крахмала</p></div><div class="spec"><h3>3D-печать</h3><p>Точная передача окон, балконов, подъездов и формы крыши</p></div><div class="spec"><h3>Ручная сборка</h3><p>Каждый экземпляр собирается отдельно</p></div></div></div></section>
+<section class="final"><img src="assets/hero.jpg" alt=""><div class="wrap"><p class="eyebrow">Дом, который светится</p><h2>Есть место,<br>которое хочется сохранить?</h2><p class="lead">Свяжитесь с автором проекта и узнайте больше о модели «Дом №13».</p><div class="contact-list"><a class="contact-link" href="tel:+79254288189" aria-label="Позвонить по телефону +7 925 428-81-89">+7 (925) 428-81-89</a><a class="contact-link" href="mailto:sergeevcev@ya.ru" aria-label="Написать на электронную почту sergeevcev@ya.ru">sergeevcev@ya.ru</a></div><p class="handmade-note">Каждая миниатюра создаётся вручную и существует в единственном экземпляре.</p></div></section>
+<script>
+const autoplayVideos = document.querySelectorAll('[data-autoplay]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) playPromise.catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.45 });
+autoplayVideos.forEach((video) => videoObserver.observe(video));
+
+// Mark content for staggered reveal without changing the page markup.
+document.querySelectorAll('main > section, body > section').forEach((section) => section.classList.add('reveal'));
+document.querySelectorAll('section .eyebrow, section h2, section .lead, section .spec').forEach((element) => element.classList.add('reveal-text'));
+document.querySelectorAll('.cardimg, .compare-grid, .gallery, .video').forEach((element) => element.classList.add('parallax-media'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('.reveal, .reveal-text, .process').forEach((element) => revealObserver.observe(element));
+
+// Gentle image parallax: the image scales and shifts only a few pixels.
+if (!reduceMotion) {
+  const parallaxImages = [...document.querySelectorAll('.parallax-media img')];
+  let ticking = false;
+  const updateParallax = () => {
+    const viewport = window.innerHeight;
+    parallaxImages.forEach((image) => {
+      const rect = image.parentElement.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > viewport) return;
+      const progress = (viewport - rect.top) / (viewport + rect.height);
+      const shift = (progress - .5) * 18;
+      const scale = 1.04 + Math.abs(progress - .5) * .025;
+      image.style.transform = `translate3d(0, ${shift}px, 0) scale(${scale})`;
+    });
+    ticking = false;
+  };
+  const requestParallax = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  };
+  window.addEventListener('scroll', requestParallax, { passive: true });
+  window.addEventListener('resize', requestParallax);
+  requestParallax();
+}
+</script>
+</body></html>
