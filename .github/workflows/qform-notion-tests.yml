@@ -1,0 +1,22 @@
+name: QForm → Notion Worker tests
+on:
+  push:
+    paths:
+      - 'integration/qform-notion/**'
+      - '.github/workflows/qform-notion-tests.yml'
+  pull_request:
+    paths:
+      - 'integration/qform-notion/**'
+      - '.github/workflows/qform-notion-tests.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: integration/qform-notion
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run test
