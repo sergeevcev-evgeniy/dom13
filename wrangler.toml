@@ -1,0 +1,9 @@
+# Cloudflare Workers Git importer starts from the repository root.
+# The production website remains a static GitHub Pages site (index.html).
+name = "dom13-qform-notion"
+main = "integration/qform-notion/src/index.js"
+compatibility_date = "2026-10-10"
+workers_dev = true
+
+[vars]
+NOTION_DATA_SOURCE_ID = "9f0d20ce-441c-4d6e-b833-0bfe4bfcca21"
